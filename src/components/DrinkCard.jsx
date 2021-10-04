@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Redirect, useHistory } from 'react-router';
+import { Redirect, useHistory } from 'react-router-dom';
 import foodContext from '../context/FoodContext';
 
 function DrinkCard() {
@@ -25,7 +25,7 @@ function DrinkCard() {
           data-testid={ `${index}-recipe-card` }
           key={ idDrink }
           className="drink-card"
-          onClick={ () => handleClick(idDrink) }
+          onClick={ () => handleClick(idDrink)}
         >
           <img
             data-testid={ `${index}-card-img` }
