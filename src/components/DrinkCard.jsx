@@ -25,7 +25,7 @@ function DrinkCard() {
           data-testid={ `${index}-recipe-card` }
           key={ idDrink }
           className="drink-card"
-          onClick={ () => handleClick(idDrink)}
+          onClick={ () => handleClick(idDrink) }
         >
           <img
             data-testid={ `${index}-card-img` }
