@@ -1,23 +1,30 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router-dom';
 import foodContext from '../context/FoodContext';
 
 function FoodCard() {
-  const { foodState } = useContext(foodContext);
+  const { foodState, prevent } = useContext(foodContext);
+  const history = useHistory();
   const MAX_NUMBER = 12;
 
-  if (foodState.length === 1) {
+  if (foodState.length === 1 && !prevent) {
     return (
       <Redirect to={ `comidas/${foodState[0].idMeal}` } />
     );
   }
 
+  function handleClick(id) {
+    history.push(`comidas/${id}`);
+  }
   return (
-    <div>
-      {foodState.map(({ idMeal, strMealThumb, strMeal }, index) => (
-        <div
+    <div className="food-box">
+      {foodState ? foodState.map(({ idMeal, strMealThumb, strMeal }, index) => (
+        <button
+          className="food-card"
+          type="button"
           data-testid={ `${index}-recipe-card` }
           key={ idMeal }
+          onClick={ () => handleClick(idMeal) }
         >
           <img
             data-testid={ `${index}-card-img` }
@@ -25,8 +32,8 @@ function FoodCard() {
             alt={ strMeal }
           />
           <p data-testid={ `${index}-card-name` }>{strMeal}</p>
-        </div>))
-        .slice(0, MAX_NUMBER)}
+        </button>))
+        .slice(0, MAX_NUMBER) : null }
     </div>
   );
 }

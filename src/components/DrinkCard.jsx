@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router-dom';
 import foodContext from '../context/FoodContext';
 
 function DrinkCard() {
   const { drinkState } = useContext(foodContext);
   const MAX_NUMBER = 12;
+  const history = useHistory();
 
   if (drinkState.length === 1) {
     return (
@@ -12,12 +13,19 @@ function DrinkCard() {
     );
   }
 
+  function handleClick(id) {
+    history.push(`bebidas/${id}`);
+  }
+
   return (
-    <div>
-      {drinkState.map(({ idDrink, strDrinkThumb, strDrink }, index) => (
-        <div
+    <div className="drink-div">
+      { drinkState ? drinkState.map(({ idDrink, strDrinkThumb, strDrink }, index) => (
+        <button
+          type="button"
           data-testid={ `${index}-recipe-card` }
           key={ idDrink }
+          className="drink-card"
+          onClick={ () => handleClick(idDrink) }
         >
           <img
             data-testid={ `${index}-card-img` }
@@ -25,8 +33,8 @@ function DrinkCard() {
             alt={ strDrink }
           />
           <h3 data-testid={ `${index}-card-name` }>{strDrink}</h3>
-        </div>))
-        .slice(0, MAX_NUMBER)}
+        </button>))
+        .slice(0, MAX_NUMBER) : null }
     </div>
   );
 }

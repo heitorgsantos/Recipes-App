@@ -1,46 +1,57 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
 
 export default function Header({ title }) {
+  const history = useHistory();
   const [renderSB, setRenderSB] = useState(false);
 
   function handleClick() {
     setRenderSB(!renderSB);
   }
 
+  function showButton() {
+    const { location: { pathname } } = history;
+    if (pathname === '/comidas' || pathname === '/bebidas'
+      || pathname === '/explorar/comidas/area') {
+      return (
+        <div>
+          <button
+            data-testid="search-top-btn"
+            type="button"
+            src={ searchIcon }
+            onClick={ handleClick }
+          >
+            <img src={ searchIcon } alt="Mostrar pesquisa" />
+          </button>
+        </div>
+      );
+    }
+  }
+
   return (
     <div>
       <header>
-        <Link
-          to="/perfil"
+        <button
           type="submit"
+          data-testid="profile-top-btn"
+          src={ profileIcon }
+          onClick={ () => { history.push('/perfil'); } }
         >
           <img
             src={ profileIcon }
             alt="profile-icon"
-            data-testid="profile-top-btn"
           />
-        </Link>
+        </button>
         <h1
           data-testid="page-title"
         >
           { title }
         </h1>
-        <button
-          type="submit"
-          data-testid="search-top-btn"
-          src={ searchIcon }
-          onClick={ handleClick }
-        >
-          <img
-            src={ searchIcon }
-            alt="search-icon"
-          />
-        </button>
+        { showButton() }
       </header>
       { renderSB ? <SearchBar page={ title } /> : null }
     </div>

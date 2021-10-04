@@ -5,53 +5,37 @@ import foodContext from './FoodContext';
 const Provider = ({ children }) => {
   const [foodState, setFoodState] = useState([]);
   const [drinkState, setDrinkState] = useState([]);
+  const [foodCategory, setFoodCategory] = useState([]);
+  const [drinkCategory, setDrinkCategory] = useState([]);
+  const [foodFilter, setFoodFilter] = useState([]);
+  const [boolean, setBoolean] = useState(false);
+  const [booleanDrink, setBooleanDrink] = useState(false);
+  const [selectFoodCategory, setSelectFoodCategory] = useState([]);
+  const [clickBtn, setClickBtn] = useState(true);
+  const [prevent, setPrevent] = useState(false);
 
   const contextValue = {
     foodState,
     setFoodState,
     drinkState,
     setDrinkState,
+    foodCategory,
+    setFoodCategory,
+    drinkCategory,
+    setDrinkCategory,
+    foodFilter,
+    setFoodFilter,
+    boolean,
+    setBoolean,
+    booleanDrink,
+    setBooleanDrink,
+    selectFoodCategory,
+    setSelectFoodCategory,
+    clickBtn,
+    setClickBtn,
+    prevent,
+    setPrevent,
   };
-
-  /* async function iAPI(i) {
-    const ingredientSearch = await ingredientAPI(i);
-    setFoodState(ingredientSearch);
-  }
-
-  async function nAPI(n) {
-    const nameSearch = await nameAPI(n);
-    setFoodState(nameSearch);
-  }
-
-  async function lAPI(l) {
-    const letterSearch = await fistLetterAPI(l);
-    setFoodState(letterSearch);
-  }
-
-  async function idrinkAPI(i) {
-    const drinkIngredient = await ingredientDrinkAPI(i);
-    setDrinkState(drinkIngredient);
-  }
-
-  async function ndrinkAPI(i) {
-    const drinkName = await nameDrinkAPI(i);
-    setDrinkState(drinkName);
-  }
-
-  async function ldrinkAPI(i) {
-    const drinkLetter = await fistLetterDrinkAPI(i);
-    setDrinkState(drinkLetter);
-  }
-
-  useEffect(() => {
-    console.log('oi');
-    iAPI(test);
-    nAPI(test);
-    lAPI(test);
-    idrinkAPI(test);
-    ndrinkAPI(test);
-    ldrinkAPI(test);
-  }, []); */
 
   return (
     <foodContext.Provider value={ contextValue }>
