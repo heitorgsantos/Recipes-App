@@ -131,7 +131,7 @@ export default function FavoriteRecipes() {
         </div>);
     } return (
       <div>
-        { favRec.map((rec, index) => {
+        { favRec && favRec.map((rec, index) => {
           if (rec.type === 'comida') {
             return (
               <div key={ index }>

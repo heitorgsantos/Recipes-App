@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 export default function Profile({ history }) {
-  const [email, setEmail] = useState('');
-  useEffect(() => {
-    function profile() {
-      const user = JSON.parse(localStorage.getItem('user'));
-      setEmail(user.email);
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  const nullTest = () => {
+    if (user === null) {
+      return <p data-testid="profile-email">email</p>;
     }
-    profile();
-  }, []);
+    return <p data-testid="profile-email">{user.email}</p>;
+  };
+
   return (
     <div>
       <Header title="Perfil" />
       <div>
-        <p data-testid="profile-email">{ email }</p>
+        { nullTest() }
         <button
           type="button"
           data-testid="profile-done-btn"
