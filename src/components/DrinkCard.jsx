@@ -18,7 +18,7 @@ function DrinkCard() {
   }
 
   return (
-    <div className="drink-box">
+    <div className="drink-div">
       { drinkState ? drinkState.map(({ idDrink, strDrinkThumb, strDrink }, index) => (
         <button
           type="button"

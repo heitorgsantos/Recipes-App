@@ -41,32 +41,32 @@
 .food-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .food-card {
   border: solid gray 2px;
   border-radius: 5%;
-  overflow: hidden;
-  margin: 5px;
   display: flex;
   flex-direction: column;
+  margin: 5px;
+  overflow: hidden;
   width: 70vh;
 }
 
 .food-card p {
+  font-family: Impact , Haettenschweiler , sans-serif;
   margin-left: 30vh;
-  font-family: Impact, Haettenschweiler, sans-serif;
   text-transform: uppercase;
 }
+
 .food-card :hover {
   cursor: pointer;
 }
 
-.drink-box {
+.drink-div {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .drink-card {
