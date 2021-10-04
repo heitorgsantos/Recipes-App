@@ -131,7 +131,7 @@ export default function FavoriteRecipes() {
         </div>);
     } return (
       <div>
-        { favRec ? favRec.map((rec, index) => {
+        { favRec && favRec.map((rec, index) => {
           if (rec.type === 'comida') {
             return (
               <div key={ index }>
@@ -201,7 +201,7 @@ export default function FavoriteRecipes() {
                 onClick={ () => handleLike(rec, setLocal, local) }
               />
             </div>);
-        }) : null }
+        })}
       </div>);
   }
 
