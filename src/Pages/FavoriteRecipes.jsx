@@ -207,7 +207,7 @@ export default function FavoriteRecipes() {
 
   return (
     <>
-      <Header title="Favorites" />
+      <Header title="Receitas Favoritas" />
       <div>
         <button
           type="button"

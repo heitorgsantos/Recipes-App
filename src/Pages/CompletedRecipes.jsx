@@ -3,6 +3,6 @@ import Header from '../components/Header';
 
 export default function CompletedRecipes() {
   return (
-    <Header title="Completed Recipes" />
+    <Header title="Receitas Feitas" />
   );
 }
