@@ -17,7 +17,7 @@ function Login({ history }) {
   };
 
   useEffect(() => {
-    localStorage.setItem('favoriteRecipes', '[]');
+    // localStorage.setItem('favoriteRecipes', '[]');
   }, []);
 
   const handleSubmit = () => {
