@@ -74,6 +74,7 @@ export default function FavoriteRecipes() {
                       src={ rec.image }
                       alt="rec"
                       data-testid={ `${index}-horizontal-image` }
+                      className="img-link"
                     />
                   </Link>
                   <input
@@ -108,6 +109,7 @@ export default function FavoriteRecipes() {
                     src={ rec.image }
                     alt="rec"
                     data-testid={ `${index}-horizontal-image` }
+                    className="img-link"
                   />
                 </Link>
                 <input
@@ -146,6 +148,7 @@ export default function FavoriteRecipes() {
                     src={ rec.image }
                     alt="rec"
                     data-testid={ `${index}-horizontal-image` }
+                    className="img-link"
                   />
                 </Link>
                 <input
@@ -180,6 +183,7 @@ export default function FavoriteRecipes() {
                   src={ rec.image }
                   alt="rec"
                   data-testid={ `${index}-horizontal-image` }
+                  className="img-link"
                 />
               </Link>
               <input
