@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Redirect, useHistory } from 'react-router';
+import { Redirect, useHistory } from 'react-router-dom';
 import foodContext from '../context/FoodContext';
 
 function FoodCard() {
