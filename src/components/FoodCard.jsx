@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import foodContext from '../context/FoodContext';
 
 function FoodCard() {
   const { foodState, prevent } = useContext(foodContext);
-
+  const history = useHistory();
   const MAX_NUMBER = 12;
 
   if (foodState.length === 1 && !prevent) {
@@ -13,12 +13,18 @@ function FoodCard() {
     );
   }
 
+  function handleClick(id) {
+    history.push(`comidas/${id}`);
+  }
   return (
-    <div>
+    <div className="food-box">
       {foodState ? foodState.map(({ idMeal, strMealThumb, strMeal }, index) => (
-        <div
+        <button
+          className="food-card"
+          type="button"
           data-testid={ `${index}-recipe-card` }
           key={ idMeal }
+          onClick={ () => handleClick(idMeal) }
         >
           <img
             data-testid={ `${index}-card-img` }
@@ -26,7 +32,7 @@ function FoodCard() {
             alt={ strMeal }
           />
           <p data-testid={ `${index}-card-name` }>{strMeal}</p>
-        </div>))
+        </button>))
         .slice(0, MAX_NUMBER) : null }
     </div>
   );
