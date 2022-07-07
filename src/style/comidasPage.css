@@ -1,0 +1,19 @@
+.food-card {
+  background-color: aqua;
+}
+
+.img-food-card {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  border-radius: 25px;
+  padding: 10px 130px 10px 10px;
+}
+
+.food-box {
+  max-width: 500px;
+  max-height: 5000px;
+  display: flex;
+  justify-content: left;
+  ;
+}

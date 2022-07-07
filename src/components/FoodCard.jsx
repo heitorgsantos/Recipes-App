@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import foodContext from '../context/FoodContext';
+import '../style/comidasPage.css';
 
 function FoodCard() {
   const { foodState, prevent } = useContext(foodContext);
@@ -27,11 +28,12 @@ function FoodCard() {
           onClick={ () => handleClick(idMeal) }
         >
           <img
+            className="img-food-card"
             data-testid={ `${index}-card-img` }
             src={ strMealThumb }
             alt={ strMeal }
           />
-          <p data-testid={ `${index}-card-name` }>{strMeal}</p>
+          <p className="card-name" data-testid={ `${index}-card-name` }>{strMeal}</p>
         </button>))
         .slice(0, MAX_NUMBER) : null }
     </div>
